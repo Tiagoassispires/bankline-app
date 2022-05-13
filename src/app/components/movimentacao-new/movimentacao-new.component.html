@@ -5,7 +5,7 @@
         <hr class="my-2">        
             <div class="col-md-3">
               <label for="iData" class="form-label">Data</label>
-              <input type="date" class="form-control" id="iData">
+              <input type="date" [(ngModel)]="dataHora" class="form-control" id="iData">
             </div>
             <br>
             <div class="col-md-9">
@@ -18,13 +18,13 @@
             </div>
             <br>
             <div class="col-12">
-              <label for="iDescricao" class="form-label">Descrição</label>
-              <input type="text" class="form-control" id="iDescricao" placeholder="Informe uma descrição">
+              <label for="iDescricao"  class="form-label">Descrição</label>
+              <input type="text" [(ngModel)]="descricao" class="form-control" id="iDescricao" placeholder="Informe uma descrição">
             </div>
             <br>
             <div class="col-md-3">
               <label for="iTipo" class="form-label">Tipo Movimentação: </label>
-              <select id="iTipo" class="form-select">
+              <select id="iTipo" [(ngModel)]="tipo" class="form-select">
                 <option selected>RECEITA</option>
                 <option>DESPESA</option>
               </select>
@@ -32,11 +32,11 @@
             <br>
             <div class="col-md-2">
               <label for="iValor" class="form-label">R$ Valor</label>
-              <input type="text" class="form-control" id="iValor">
+              <input [(ngModel)]="valor" currencyMask [options]="{ prefix: 'R$ ', thousands: '.', decimal: ',' }" type="text" class="form-control" id="iValor">
             </div>
             <br>
             <div class="d-grid gap-2 d-md-flex ">
-                <button class="btn btn-outline-primary me-md-2" type="button">Confirmar</button>
+                <button class="btn btn-outline-primary me-md-2" (click)="save()"  type="button">Confirmar</button>
                 <a routerLink="/movimentacoes" class="btn btn-outline-secondary">Cancelar</a>
               </div>
       </div>
